@@ -46,7 +46,7 @@ class PostController extends Controller
         $post->title =$request->title;
           $post->description =$request->description;
           $post->save();
-          Session::flash('success','the blog was successfully added');
+
 
           return redirect()->route('posts.index');
 
@@ -87,7 +87,15 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      $post=posts::find($id);
+      $post->title =$request->title;
+        $post->description =$request->description;
+        $post->save();
+
+
+      return redirect()->route('posts.index');
+
+
     }
 
     /**
