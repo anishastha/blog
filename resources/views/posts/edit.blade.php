@@ -24,6 +24,12 @@
       <label for="inputEmail4">Description</label>
       <textarea class="form-control" id="description"  name="description"> {{$row->description}}</textarea>
       </div>
+      <label for="created date">Title</label>
+      <input type="text" class="form-control" id="created_at"  name="created_at" value="{{$row->created_at}}">
+      </div>
+      <label for="inputEmail4">Title</label>
+      <input type="email" class="form-control" id="updated_at"  name="updated_at" value="{{$row->updated_at}}">
+      </div>
 
       <button type="submit" class="btn btn-primary">Update</button>
       </form>
