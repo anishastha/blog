@@ -1,6 +1,7 @@
 @extends('main')
 @section('stylesheets')
 {!!Html::style('css/parsley.css')!!}
+<link rel="stylesheet" type="text/css" href="{{asset('css/lightbox.min.css')}}">
 @endsection
 @section('title' , '|contact')
 @include('partials/inc_message')
@@ -20,12 +21,27 @@
     <label for="message">Message</label>
     <textarea class="form-control" id="message" name="message" data-parsley-required> Send your message</textarea>
   </div>
+  <div class="form-group">
+    <label for="message">Message Nepali</label>
+    <textarea style="font-family:preeti;"></textarea>
+
+  </div>
 
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 </div>
+<div>
+
+  <a href="{{asset('images/two.png')}}" data-lightbox="mygallery"> <img src="{{asset('images/two.png')}}"> </a>
+  <a href="{{asset('images/three.png')}}" data-lightbox="mygallery"> <img src="{{asset('images/three.png')}}">
+  </a>
+
+  </div>
 @section('scripts')
 {{!!Html::script('js/parsley.min.js')!!}}
+<script type="text/javascript" src="{{asset('js/lightbox-plus-jquery.min.js')}}">
+
+
 
 @endsection
 

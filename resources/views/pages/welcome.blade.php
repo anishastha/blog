@@ -1,8 +1,11 @@
 @extends('main')
 @section('title' , '|homepage')
 @section('content')
+@include('partials.inc_message')
 <div class="row" style="margin-top:20px;">
-  <a href="{{route('courses.create')}}"> <button class="btn btn-primary"> Add New Course </button></a>
+
+
+
 </div>
   <div class="row">
 
@@ -26,4 +29,72 @@
     <h3> Sidebar </h3>
 </div>
 </div>
+
+
+<div class="modal fade" id="addteacher" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Press Release Form</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="{{route('teacher.store')}}" method="POST"> {{csrf_field()}}
+
+          <div>
+
+          <div class="form-group row">
+            <div class="col-md-2">
+              <label for="english_title" class="col-form-label"> First Name </label>
+            </div>
+            <div class="col-md-10">
+              <input type="text" class="form-control" id="fname" name="fname" placeholder="First Name">
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <div class="col-md-2">
+              <label for="nepalititle" class="col-form-label">Last Name</label>
+            </div>
+            <div class="col-md-10">
+              <input type="text" class="form-control" id="lname" name="lname" placeholder="Last Name">
+            </div>
+            </div>
+
+            <div class="form-group row">
+              <div class="col-md-2">
+              <label for="published_date" class="col-form-label"> Email </label>
+            </div>
+              <div class="col-md-10">
+              <input type="email" class="form-control" id="email" name="email" placeholder="Email"/>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <div class="col-md-2">
+              <label for="link" class="col-form-label">Password</label>
+            </div>
+              <div class="col-md-10">
+                <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+              </div>
+            </div>
+
+
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-primary">Add</button>
+        <button type="reset" class="btn btn-danger"> Reset </button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal"> Close</button>
+      </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
 @endsection

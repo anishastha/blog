@@ -1,3 +1,6 @@
+
+
+
 @extends('main')
 @section('title','|allPosts')
 @section('stylesheets')
@@ -11,12 +14,16 @@
 
 
 
-
+  @if(!Auth::user()->role=='user')
 
       <h3>{{$row->title}}</h3><td> <a href="{{route('posts.edit',$row->id)}}" > <button class="btn btn-primary"> Edit </button> </a>
         <form action="{{route('posts.destroy',$row->id)}}" method="POST" class="d-inline-block">{{csrf_field()}}
         @method('delete')
        <input type="submit" value="Delete" class="btn btn-danger"> </td> </form>
+       @endif
+       <div class="image1">
+         <img src="{{ asset('images/'. $row->photo) }}" alt="Project Image">
+       </div>
       <p> {{$row->description}} </p>
       <div class="dates">
     <p>  created at: {{$row->created_at}}  </p>

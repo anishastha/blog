@@ -9,7 +9,7 @@
   <div class="container">
 
     @yield('content')
-  
+
 
   </div>
   @include('partials.inc_footer')

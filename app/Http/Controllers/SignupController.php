@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\students;
 use Session;
+use Image;
 
 class SignupController extends Controller
 {
@@ -53,6 +54,18 @@ return view('pages/showallstudent')->withstudents($students);
           $post->password= $request->password;
           $post->contact=$request->contact;
           $post->country=$request->country;
+
+                  if($request->hasFile('photo'))
+                  {
+                    $image= $request->file('photo');
+                    $filename= time(). "." .$image->getClientOriginalExtension();
+                    $location= public_path('images/'.$filename);
+                 Image::make($image)->save($location);
+
+                    $post->photo= $filename;
+
+                  }
+
           $post->save();
           Session::flash('success','the user was successfully added');
           return redirect()->route('signup.show',$post->id);

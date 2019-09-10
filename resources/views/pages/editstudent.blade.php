@@ -1,6 +1,7 @@
 @extends('main')
 @section('stylesheets')
 {!!Html::style('css/parsley.css')!!}
+<link rel="stylesheet" href="{{asset('css/style.css')}}"">
 @endsection
 @section('title','|Edit Details')
 @include('partials/inc_message')
@@ -9,9 +10,9 @@
 <a href="{{route('signup.index')}}"> <button type="submit" class="btn btn-primary">View all Students</button> </a>
 </div>
 <div class="row" style="margin-top:30px;">
-  <div class="col-md-8 offset-md-2">
+  <div class="col-md-7 offset-md-1">
 
-    <form action="{{route('signup.update',$row->id)}}" method="POST" data-parsley-validate>{{csrf_field()}}
+    <form action="{{route('signup.update',$row->id)}}" method="POST" data-parsley-validate enctype="multipart/form-data">{{csrf_field()}}
       @method('put')
       <div class="form-row">
       <div class="form-group col-md-6">
@@ -53,6 +54,12 @@
   <button type="submit" class="btn btn-primary">Update</button>
 </form>
   </div>
+
+<div class="col-md-4">
+  <div class="profileimage">
+    <img src="{{ asset('images/'. $row->photo) }}" alt="Profile Picture">
+  </div>
+</div>
 </div>
 
 

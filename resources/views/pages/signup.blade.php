@@ -10,7 +10,7 @@
 </div>
 <div class="row" style="margin-top:30px;">
   <div class="col-md-8 offset-md-2">
-    <form action="{{route('signup.store')}}" method="POST" data-parsley-validate>{{csrf_field()}}
+    <form action="{{route('signup.store')}}" method="POST" data-parsley-validate enctype="multipart/form-data">{{csrf_field()}}
       <div class="form-row">
       <div class="form-group col-md-6">
         <label for="firstname">First Name</label>
@@ -46,6 +46,10 @@
         <option>China</option>
       </select>
     </div>
+  </div>
+  <div class="form-group">
+    <label for="photp">Profile Image </label>
+    <input type="file" class="form-control" id="photo" name="photo">
   </div>
 
   <button type="submit" class="btn btn-primary">Sign in</button>

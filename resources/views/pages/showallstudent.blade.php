@@ -25,12 +25,17 @@
       <td>{{$row->lname}}</td>
       <td>{{$row->contact}}</td>
         <td>{{$row->country}}</td>
+
+
+        @if(Auth::user()->role=='admin')
     <td>   <a href="{{route('signup.edit',$row->id)}}" >  <button class="btn btn-primary"> Edit </button> </a>
          <form action="{{route('signup.destroy',$row->id)}}" method="POST" class="d-inline-block">{{csrf_field()}}
          @method('delete')
 
-         <button class="btn btn-danger"> Delete </button></td>
+         <button class="btn btn-danger"> Delete </button>
        </form>
+     </td>
+     @endif
 
     </tr>
 
